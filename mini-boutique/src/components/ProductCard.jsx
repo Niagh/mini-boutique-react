@@ -1,24 +1,32 @@
 import ProductBadge from './ProductBadge'
 
-function ProductCard({ name, price, category, image, description, available }) {
+function ProductCard({ product, isSelected, isFavorite, onSelectProduct, onToggleFavorite }) {
     return (
-        <article className="product-card">
-            <img src={image} alt={name} />
+        <article className={`product-card ${isSelected ? 'selected' : ''}`}>
+            <img src={product.image} alt={product.name} />
 
             <div>
-                <ProductBadge category={category} />
+                <ProductBadge category={product.category} />
 
-                <h3>{name}</h3>
+                <h3>{product.name}</h3>
 
                 <p className="product-description">
-                    {description}
+                    {product.description}
                 </p>
 
-                <strong>{price} €</strong>
+                <strong>{product.price} €</strong>
 
-                <p className={available ? 'available' : 'unavailable'}>
-                    {available ? 'Disponible' : 'Indisponible'}
+                <p className={product.available ? 'available' : 'unavailable'}>
+                    {product.available ? 'Disponible' : 'Indisponible'}
                 </p>
+
+                <button onClick={() => onSelectProduct(product)}>
+                    Voir les détails
+                </button>
+
+                <button onClick={() => onToggleFavorite(product.id)}>
+                    {isFavorite ? 'Retirer des favoris' : 'Ajouter aux favoris'}
+                </button>
             </div>
         </article>
     )

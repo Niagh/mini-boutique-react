@@ -195,3 +195,73 @@ Pour lancer le projet, il faut utiliser la commande suivante :
 ```bash
 npm run dev
 ```
+
+## Questions de compréhension - TP 5
+
+### 1. Quelle est la différence entre une prop et un state ?
+
+Une prop est une donnée transmise par un composant parent à un composant enfant.
+
+Un state est une donnée interne à un composant, qui peut changer pendant l'utilisation de l'application.
+
+Dans ce TP, `products` est transmis en prop à `ProductList`, alors que `selectedProduct`, `showDetails` et `favoriteProductId` sont des states dans `App`.
+
+---
+
+### 2. Pourquoi le state selectedProduct est-il placé dans App ?
+
+Le state `selectedProduct` est placé dans `App` car plusieurs composants ont besoin de cette information.
+
+`ProductList` permet de choisir le produit, et `ProductDetails` affiche le produit sélectionné.
+
+Comme `App` est le parent commun, c'est le bon endroit pour stocker cette donnée.
+
+---
+
+### 3. Pourquoi ProductCard ne modifie-t-il pas directement selectedProduct ?
+
+`ProductCard` ne modifie pas directement `selectedProduct` parce que ce state appartient au composant `App`.
+
+En React, un composant enfant ne doit pas modifier directement le state de son parent.
+
+Il appelle plutôt une fonction reçue en props, ici `onSelectProduct`.
+
+---
+
+### 4. À quoi sert setSelectedProduct ?
+
+`setSelectedProduct` sert à modifier la valeur du state `selectedProduct`.
+
+Quand l'utilisateur clique sur un produit, cette fonction permet de définir ce produit comme produit actuellement sélectionné.
+
+React met ensuite automatiquement l'affichage à jour.
+
+---
+
+### 5. Pourquoi passe-t-on une fonction en props ?
+
+On passe une fonction en props pour permettre à un composant enfant de demander une action au composant parent.
+
+Dans ce TP, `ProductCard` reçoit la fonction `onSelectProduct`.
+
+Quand l'utilisateur clique sur le bouton "Voir les détails", `ProductCard` appelle cette fonction pour changer le produit sélectionné dans `App`.
+
+---
+
+### 6. Que fait la ligne showDetails && <ProductDetails ... /> ?
+
+Cette ligne permet d'afficher `ProductDetails` seulement si `showDetails` vaut `true`.
+
+Si `showDetails` vaut `false`, le composant `ProductDetails` n'est pas affiché.
+
+C'est un rendu conditionnel simple en React.
+
+---
+
+### 7. Pourquoi favoriteProductId est-il initialisé à null ?
+
+`favoriteProductId` est initialisé à `null` parce qu'au début, aucun produit n'est encore marqué comme favori.
+
+Quand l'utilisateur ajoute un produit aux favoris, on stocke l'id de ce produit.
+
+Si l'utilisateur retire le favori, la valeur redevient `null`.

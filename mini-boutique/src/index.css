@@ -113,3 +113,49 @@ main {
   flex-wrap: wrap;
   justify-content: center;
 }
+.selected {
+  border: 2px solid #0077aa;
+  box-shadow: 0 8px 22px rgba(0, 119, 170, 0.25);
+}
+.details-button {
+  margin-top: 20px;
+  padding: 10px 14px;
+  border: none;
+  border-radius: 8px;
+  background-color: #222;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.details-button:hover {
+  background-color: #444;
+}
+.product-card button {
+  margin-top: 10px;
+  margin-right: 8px;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 8px;
+  background-color: #222;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.product-card button:hover {
+  background-color: #444;
+}
+.product-card.selected {
+  border: 2px solid #222;
+}
+.product-card button,
+.product-details button {
+  margin-top: 10px;
+  margin-right: 8px;
+  padding: 8px 12px;
+  cursor: pointer;
+}
+.product-actions {
+  margin-top: 12px;
+}

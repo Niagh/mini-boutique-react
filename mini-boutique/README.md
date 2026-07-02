@@ -18,8 +18,9 @@ Le but du projet est de comprendre les bases de React, notamment les composants,
 
 ## Aperçu du projet
 
-![Aperçu du projet](./ScreenshotMonProjet.png)
+## Capture d'écran du rendu final
 
+![Capture début mini boutique](./screenshots/Screen1.png)
 ## Fonctionnalités
 
 L'application affiche plusieurs produits :
@@ -127,6 +128,10 @@ npm run dev
 ```
 ## TP 6.2 - Mini boutique avec panier
 
+## Capture d'écran du rendu final
+
+![Capture finale de la mini boutique](./screenshots/Screen3.png)
+
 Dans ce TP, j'ai transformé le catalogue en mini boutique avec un début de gestion de panier.
 
 ### Fonctionnalités ajoutées
@@ -155,4 +160,5 @@ Dans ce TP, j'ai transformé le catalogue en mini boutique avec un début de ges
 - rendu conditionnel
 - formulaire contrôlé
 - calcul avec `reduce()`
+
 

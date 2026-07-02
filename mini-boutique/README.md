@@ -105,76 +105,6 @@ Le composant `Footer` affiche le pied de page de l'application.
 
 ---
 
-## Questions de compréhension
-
-### 1. Quel est le rôle du composant App ?
-
-Le composant `App` est le composant principal de l'application.
-
-Il regroupe les autres composants et organise la structure générale de la page.
-
----
-
-### 2. Pourquoi place-t-on les composants dans un dossier components ?
-
-On place les composants dans un dossier `components` pour mieux organiser le projet.
-
-Cela permet de séparer chaque partie de l'interface dans un fichier différent et de retrouver plus facilement le code.
-
----
-
-### 3. Quelle est la différence entre ProductList et ProductCard ?
-
-`ProductList` affiche la liste complète des produits.
-
-`ProductCard` affiche une seule carte produit.
-
-Donc `ProductList` utilise plusieurs fois `ProductCard`.
-
----
-
-### 4. Pourquoi le nom ProductCard commence-t-il par une majuscule ?
-
-Le nom `ProductCard` commence par une majuscule parce qu'en React, les composants doivent commencer par une majuscule.
-
-Cela permet à React de reconnaître qu'il s'agit d'un composant personnalisé.
-
----
-
-### 5. À quoi servent les props dans le composant ProductCard ?
-
-Les props servent à transmettre des données au composant `ProductCard`.
-
-Par exemple, elles permettent d'envoyer le nom, le prix, l'image, la description, la catégorie et la disponibilité du produit.
-
-Grâce aux props, chaque carte peut afficher des informations différentes.
-
----
-
-### 6. Pourquoi peut-on réutiliser plusieurs fois le même composant ProductCard ?
-
-On peut réutiliser plusieurs fois le composant `ProductCard` parce qu'il garde la même structure.
-
-Seules les informations changent grâce aux props.
-
-Cela évite de répéter le même code plusieurs fois.
-
----
-
-### 7. Quel composant est le parent de ProductCard ?
-
-Le composant parent de `ProductCard` est `ProductList`.
-
-C'est dans `ProductList` que les composants `ProductCard` sont utilisés.
-
----
-
-### 8. Quel composant est le parent principal de toute l'application ?
-
-Le composant parent principal de toute l'application est `App`.
-
----
-
 ## Améliorations réalisées
 
 J'ai ajouté plusieurs améliorations au projet :
@@ -195,73 +125,34 @@ Pour lancer le projet, il faut utiliser la commande suivante :
 ```bash
 npm run dev
 ```
+## TP 6.2 - Mini boutique avec panier
 
-## Questions de compréhension - TP 5
+Dans ce TP, j'ai transformé le catalogue en mini boutique avec un début de gestion de panier.
 
-### 1. Quelle est la différence entre une prop et un state ?
+### Fonctionnalités ajoutées
 
-Une prop est une donnée transmise par un composant parent à un composant enfant.
+- Affichage des produits avec `.map()`
+- Utilisation d'une `key` pour chaque produit
+- Création d'un composant `Cart.jsx`
+- Ajout d'un produit au panier
+- Affichage du panier
+- Message quand le panier est vide
+- Calcul du total du panier
+- Suppression d'un produit du panier
+- Bouton pour vider le panier
+- Formulaire contrôlé avec le nom du client
+- Validation du formulaire avec `preventDefault()`
+- Utilisation de `useEffect` pour observer les changements du panier dans la console
 
-Un state est une donnée interne à un composant, qui peut changer pendant l'utilisation de l'application.
+### Notions travaillées
 
-Dans ce TP, `products` est transmis en prop à `ProductList`, alors que `selectedProduct`, `showDetails` et `favoriteProductId` sont des states dans `App`.
+- `.map()`
+- `key`
+- `useState`
+- `useEffect`
+- props
+- événements React
+- rendu conditionnel
+- formulaire contrôlé
+- calcul avec `reduce()`
 
----
-
-### 2. Pourquoi le state selectedProduct est-il placé dans App ?
-
-Le state `selectedProduct` est placé dans `App` car plusieurs composants ont besoin de cette information.
-
-`ProductList` permet de choisir le produit, et `ProductDetails` affiche le produit sélectionné.
-
-Comme `App` est le parent commun, c'est le bon endroit pour stocker cette donnée.
-
----
-
-### 3. Pourquoi ProductCard ne modifie-t-il pas directement selectedProduct ?
-
-`ProductCard` ne modifie pas directement `selectedProduct` parce que ce state appartient au composant `App`.
-
-En React, un composant enfant ne doit pas modifier directement le state de son parent.
-
-Il appelle plutôt une fonction reçue en props, ici `onSelectProduct`.
-
----
-
-### 4. À quoi sert setSelectedProduct ?
-
-`setSelectedProduct` sert à modifier la valeur du state `selectedProduct`.
-
-Quand l'utilisateur clique sur un produit, cette fonction permet de définir ce produit comme produit actuellement sélectionné.
-
-React met ensuite automatiquement l'affichage à jour.
-
----
-
-### 5. Pourquoi passe-t-on une fonction en props ?
-
-On passe une fonction en props pour permettre à un composant enfant de demander une action au composant parent.
-
-Dans ce TP, `ProductCard` reçoit la fonction `onSelectProduct`.
-
-Quand l'utilisateur clique sur le bouton "Voir les détails", `ProductCard` appelle cette fonction pour changer le produit sélectionné dans `App`.
-
----
-
-### 6. Que fait la ligne showDetails && <ProductDetails ... /> ?
-
-Cette ligne permet d'afficher `ProductDetails` seulement si `showDetails` vaut `true`.
-
-Si `showDetails` vaut `false`, le composant `ProductDetails` n'est pas affiché.
-
-C'est un rendu conditionnel simple en React.
-
----
-
-### 7. Pourquoi favoriteProductId est-il initialisé à null ?
-
-`favoriteProductId` est initialisé à `null` parce qu'au début, aucun produit n'est encore marqué comme favori.
-
-Quand l'utilisateur ajoute un produit aux favoris, on stocke l'id de ce produit.
-
-Si l'utilisateur retire le favori, la valeur redevient `null`.

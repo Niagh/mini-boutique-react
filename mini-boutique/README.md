@@ -122,15 +122,23 @@ J'ai ajouté plusieurs améliorations au projet :
 ## Lancer le projet
 
 Pour lancer le projet, il faut utiliser la commande suivante :
+## Lancer le projet
+
+Pour lancer le projet en local :
 
 ```bash
+npm install
 npm run dev
 ```
+
+Ensuite, ouvrir le lien affiché dans le terminal :
+http://localhost:5173
 ## TP 6.2 - Mini boutique avec panier
 
 ## Capture d'écran du rendu final
 
 ![Capture finale de la mini boutique](./screenshots/Screen3.png)
+
 ![Capture finale de la mini boutique](./screenshots/Screen2.png)
 
 Dans ce TP, j'ai transformé le catalogue en mini boutique avec un début de gestion de panier.
